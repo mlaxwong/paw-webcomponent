@@ -1,0 +1,14 @@
+{
+    "name": "mlaxwong/paw-webcomponent",
+    "type": "paw-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "mlaxwong",
+            "email": "mlaxwong@gmail.com"
+        }
+    ],
+    "require": {
+        "mlaxwong/paw": "^1.1"
+    }
+}

@@ -1,0 +1,10 @@
+paw-datepicker-bootstrap4.form-control {
+  padding: 0px;
+}
+paw-datepicker-bootstrap4 .form-control {
+  border: none;
+  height: auto;
+}
+paw-datepicker-bootstrap4 .vue-bootstrap-datetimepicker-wrapper {
+  position: relative;
+}

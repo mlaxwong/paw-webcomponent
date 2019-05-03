@@ -20,7 +20,7 @@ module.exports = {
     extensions: ['.js', '.vue'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': path.resolve('src/sources'),
+      '@': path.resolve('libs/'),
       'npm': path.resolve('node_modules'),
     }
   },

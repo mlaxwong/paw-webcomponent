@@ -8,6 +8,11 @@
             "email": "mlaxwong@gmail.com"
         }
     ],
+    "autoload": {
+        "psr-4": {
+            "paw\\webcomponent\\": "src/"
+        }
+    },
     "require": {
         "mlaxwong/paw": "^1.1",
         "mlaxwong/paw-bootstrap4": "^1.0",

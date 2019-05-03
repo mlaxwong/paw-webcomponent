@@ -9,6 +9,8 @@
         }
     ],
     "require": {
-        "mlaxwong/paw": "^1.1"
+        "mlaxwong/paw": "^1.1",
+        "mlaxwong/paw-bootstrap4": "^1.0",
+        "mlaxwong/paw-assets-ckeditor5": "^1.0"
     }
 }

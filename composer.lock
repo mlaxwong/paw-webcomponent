@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ee22fcf4c25a0e981a1be8b873874be9",
+    "content-hash": "086cb6dd92043f87d093b72495b56dc0",
     "packages": [
         {
             "name": "bower-asset/inputmask",
@@ -314,6 +314,138 @@
             ],
             "description": "Paw Yii2 Framework",
             "time": "2019-05-01T07:22:35+00:00"
+        },
+        {
+            "name": "mlaxwong/paw-assets-ckeditor5",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mlaxwong/paw-assets-ckeditor5.git",
+                "reference": "9ab78d6e4c074ed1f8d1a67d4d4b828ecbd00f54"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mlaxwong/paw-assets-ckeditor5/zipball/9ab78d6e4c074ed1f8d1a67d4d4b828ecbd00f54",
+                "reference": "9ab78d6e4c074ed1f8d1a67d4d4b828ecbd00f54",
+                "shasum": ""
+            },
+            "require": {
+                "mlaxwong/paw": "^1.1",
+                "npm-asset/ckeditor--ckeditor5-build-classic": "^12.1"
+            },
+            "type": "paw-plugin",
+            "autoload": {
+                "psr-4": {
+                    "paw\\assets\\ckeditor5\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mlax Wong",
+                    "email": "mlaxwong@gmail.com"
+                }
+            ],
+            "time": "2019-04-25T07:07:11+00:00"
+        },
+        {
+            "name": "mlaxwong/paw-bootstrap4",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mlaxwong/paw-bootstrap4.git",
+                "reference": "05f447b6d0890d1423ace2dd1e22b449e7d71976"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mlaxwong/paw-bootstrap4/zipball/05f447b6d0890d1423ace2dd1e22b449e7d71976",
+                "reference": "05f447b6d0890d1423ace2dd1e22b449e7d71976",
+                "shasum": ""
+            },
+            "require": {
+                "mlaxwong/paw": "^1.1",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "paw\\bootstrap4\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mlax Wong",
+                    "email": "mlaxwong@gmail.com"
+                }
+            ],
+            "time": "2019-05-03T13:55:57+00:00"
+        },
+        {
+            "name": "npm-asset/ckeditor--ckeditor5-build-classic",
+            "version": "12.1.0",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/@ckeditor/ckeditor5-build-classic/-/ckeditor5-build-classic-12.1.0.tgz",
+                "shasum": "bd8127b8f11ce0a33a3dd8893546bbed5ab5fd30"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/ckeditor/ckeditor5-build-classic/issues"
+                },
+                "npm-asset-main": "./build/ckeditor.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git+https://github.com/ckeditor/ckeditor5-build-classic.git"
+                },
+                "npm-asset-scripts": {
+                    "build": "webpack --mode production",
+                    "lint": "eslint --quiet '**/*.js'",
+                    "preversion": "npm run build; if [ -n \"$(git status src/ckeditor.js build/ --porcelain)\" ]; then git add -u src/ckeditor.js build/ && git commit -m 'Internal: Build.'; fi"
+                },
+                "npm-asset-engines": {
+                    "node": ">=8.0.0",
+                    "npm": ">=5.7.1"
+                }
+            },
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "CKSource",
+                    "url": "http://cksource.com/"
+                }
+            ],
+            "description": "The classic editor build of CKEditor 5 – the best browser-based rich text editor.",
+            "homepage": "https://ckeditor.com/ckeditor-5",
+            "keywords": [
+                "ckeditor",
+                "ckeditor 5",
+                "ckeditor5",
+                "ckeditor5-build",
+                "collaboration",
+                "collaborative",
+                "contentEditable",
+                "editing",
+                "editor",
+                "framework",
+                "html",
+                "operational transformation",
+                "ot",
+                "real-time",
+                "rich text",
+                "wysiwyg"
+            ],
+            "time": "2019-04-10T09:22:37+00:00"
         },
         {
             "name": "nterms/yii2-mailqueue",

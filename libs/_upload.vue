@@ -1,13 +1,18 @@
 <template>
-  <div>
-    <label ref="label" @click.prevent="handleClickLabel">Drag you file here</label>
+  <div class="paw-upload">
+    <label ref="label" @click.prevent="handleClickLabel" tabindex="0" @keypress.enter="handleClickLabel">
+      <span v-if="!this.preview">Drag you file here {{this.uploadPercentage}}</span>
+      <img :src="this.preview" />
+    </label>
     <input type="file" ref="input" @change.prevent="handleChangeInput" class="d-none" />
+    <input type="hidden" :value="hiddenValue" :name="this.$props.name" />
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 export default {
+  props: ['name', 'url', 'value'],
   mounted () {
     const metaCsrfParam = document.querySelector('meta[name=csrf-param]')
     const metaCsrfToken = document.querySelector('meta[name=csrf-token]')
@@ -16,10 +21,14 @@ export default {
       this.csrfParam = metaCsrfParam.getAttribute('content')
       this.csrfToken = metaCsrfToken.getAttribute('content')
     }
+
+    this.hiddenValue = this.$props.value
   },
   data () {
     return {
       files: [],
+      hiddenValue: null,
+      uploadPercentage: null,
       csrfParam: null,
       csrfToken: null
     }
@@ -40,15 +49,31 @@ export default {
       }
       axios.request({
         method: 'POST',
-        url: '/admin/project/upload',
+        url: this.$props.url,
         data: formData,
-        onUploadProgress: (p) => {
-          console.log(p)
+        onUploadProgress: (progressEvent) => {
+          this.uploadPercentage = parseInt(Math.round((progressEvent.loaded * 100) / progressEvent.total))
         }
-      }).then(data => {
+      }).then(res => {
+        const data = res.data
+        if (data.success) {
+          this.hiddenValue = data.value
+        }
         this.$refs.input.value = null
       })
+    }
+  },
+  computed: {
+    preview: function () {
+      return this.hiddenValue
     }
   }
 }
 </script>
+
+<style lang="scss">
+.paw-upload img
+{
+  max-width: 100%;
+}
+</style>

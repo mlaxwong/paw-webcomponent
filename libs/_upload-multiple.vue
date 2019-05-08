@@ -42,6 +42,18 @@ export default {
       this.csrfParam = metaCsrfParam.getAttribute('content')
       this.csrfToken = metaCsrfToken.getAttribute('content')
     }
+
+    if (this.$props.value) {
+      let values = []
+      if (this.isJson(this.$props.value)) {
+        values = JSON.parse(this.$props.value)
+      } else {
+        values.push(this.$props.value)
+      }
+      for (const value of values) {
+        this.addItem({value})
+      }
+    }
   },
   methods: {
     handleClickLabel: function (e) {
@@ -69,7 +81,9 @@ export default {
       }
       this.items.push(newItem)
       this.idCounter++
-      newItem.upload.start()
+      if (newItem.file) {
+        newItem.upload.start()
+      }
     },
     removeItem (id) {
       const index = this.getItemIndex(id)
@@ -118,10 +132,17 @@ export default {
             cancelToken: item.axiosSource.token
           }).then(res => {
             const data = res.data
-            this.setItem(item.id, {
-              isUploading: false,
-              value: data.value
-            })
+            if (data.success) {
+              this.setItem(item.id, {
+                isUploading: false,
+                value: data.value
+              })
+            } else {
+              this.setItem(item.id, {
+                error: data.error,
+                isUploading: false
+              })
+            }
           }).catch(error => {
             if (axios.isCancel(error)) {
             } else {
@@ -151,6 +172,14 @@ export default {
     },
     getItemIndex (id) {
       return this.items.findIndex(item => item.id === id)
+    },
+    isJson (str) {
+      try {
+        JSON.parse(str)
+      } catch (e) {
+        return false
+      }
+      return true
     }
   },
   components: {
@@ -205,19 +234,77 @@ export default {
 
     .paw-upload-multiple-item 
     {
-      height: 153px;
+      vertical-align: text-top;
+      height: 133px;
       margin-right: 10px;
       padding: 5px;
       border: 1px solid #ddd;
       display: inline-block;
-      float: left;
+      transition: all 0.5s;
+      -webkit-transition: all 0.5s;
+      -moz-transition: all 0.5s;
+      -ms-transition: all 0.5s;
+      -o-transition: all 0.5s;
 
       > div {
-        transition: min-width 0.5s;
-        -webkit-transition: min-width 0.5s;
-        -moz-transition: min-width 0.5s;
-        -ms-transition: min-width 0.5s;
-        -o-transition: min-width 0.5s;
+        background-color: #ddd;
+        height: 100%;
+        min-width: 250px;
+        transition: all 0.5s;
+        -webkit-transition: all 0.5s;
+        -moz-transition: all 0.5s;
+        -ms-transition: all 0.5s;
+        -o-transition: all 0.5s;
+        position: relative;
+
+         &.error {
+          background-color: #fee;
+        }
+
+        &.show {
+          background-color: transparent;
+          min-width: 0;
+        }
+
+        .cancel {
+          top: 0px;
+          right: 5px;
+          position: absolute;
+        }
+
+        .center {
+          text-align: center;
+          font-size: .8em;
+          width: 80%;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          -webkit-transform: translate(-50%, -50%);
+          -moz-transform: translate(-50%, -50%);
+          -ms-transform: translate(-50%, -50%);
+          -o-transform: translate(-50%, -50%);
+
+          > div {
+            width: 100%;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            word-break: break-all;
+            white-space: normal;
+            overflow: hidden;
+          }
+
+          progress {
+            vertical-align: middle;
+            display: inline;
+          }
+
+          a.btn {
+            border-radius: 50%;
+            width: 31px;
+          }
+        }
 
         img {
           height: 100px;
@@ -238,7 +325,6 @@ export default {
           padding-top: 5px;
         }
       }
-
     }
   }
 }

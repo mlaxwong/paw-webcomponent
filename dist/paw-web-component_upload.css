@@ -1,3 +1,27 @@
-.paw-upload img {
-  max-width: 100%;
+.paw-upload div.label-wrapper {
+  display: inline;
+}
+.paw-upload div.label-wrapper label {
+    cursor: pointer;
+}
+.paw-upload div.label-wrapper label span {
+      font-size: 0.8em;
+      padding: 10px;
+}
+.paw-upload div.label-wrapper label span.border-dotted {
+        border: 1px dashed rgba(0, 0, 0, 0.2);
+}
+.paw-upload div.label-wrapper label span i {
+        margin-right: 5px;
+}
+.paw-upload div.label-wrapper label img {
+      height: 120px;
+      opacity: 0;
+      transition: opacity 0.5s;
+}
+.paw-upload div.label-wrapper label img.show {
+        opacity: 1;
+}
+.paw-upload div.actions a {
+  font-size: 0.8em;
 }

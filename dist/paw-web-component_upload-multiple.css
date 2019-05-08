@@ -1,0 +1,59 @@
+.paw-upload-multiple label {
+  cursor: pointer;
+}
+.paw-upload-multiple label span {
+    font-size: 0.8em;
+    padding: 10px;
+}
+.paw-upload-multiple label span.border-dotted {
+      border: 1px dashed rgba(0, 0, 0, 0.2);
+}
+.paw-upload-multiple label span i {
+      margin-right: 5px;
+}
+.paw-upload-multiple label img {
+    height: 120px;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+.paw-upload-multiple label img.show {
+      opacity: 1;
+}
+.paw-upload-multiple .paw-upload-multiple-item-wrapper {
+  width: 100%;
+  padding-top: 15px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+.paw-upload-multiple .paw-upload-multiple-item-wrapper .paw-upload-multiple-item {
+    height: 153px;
+    margin-right: 10px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    float: left;
+}
+.paw-upload-multiple .paw-upload-multiple-item-wrapper .paw-upload-multiple-item > div {
+      transition: min-width 0.5s;
+      -webkit-transition: min-width 0.5s;
+      -moz-transition: min-width 0.5s;
+      -ms-transition: min-width 0.5s;
+      -o-transition: min-width 0.5s;
+}
+.paw-upload-multiple .paw-upload-multiple-item-wrapper .paw-upload-multiple-item > div img {
+        height: 100px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        -webkit-transition: opacity 0.5s;
+        -moz-transition: opacity 0.5s;
+        -ms-transition: opacity 0.5s;
+        -o-transition: opacity 0.5s;
+}
+.paw-upload-multiple .paw-upload-multiple-item-wrapper .paw-upload-multiple-item > div.show img {
+        opacity: 1;
+}
+.paw-upload-multiple .paw-upload-multiple-item-wrapper .paw-upload-multiple-item > div .actions {
+        font-size: 0.7em;
+        padding-top: 5px;
+}

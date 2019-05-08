@@ -6,6 +6,7 @@ import vueCustomElement from 'vue-custom-element'
 
 // vue components
 import upload from './_upload'
+import uploadMultiple from './_upload-multiple'
 import toasts from './_toasts'
 import ckeditor from './_ckeditor'
 import datepickerBootstrap4 from './_datepicker-bootstrap4'
@@ -39,6 +40,7 @@ Vue.use(datePicker)
 // custom custom element list
 const customElements = {
   'paw-upload': upload,
+  'paw-upload-multiple': uploadMultiple,
   'paw-toasts': toasts,
   'paw-ckeditor': ckeditor,
   'paw-datepicker-bootstrap4': datepickerBootstrap4,

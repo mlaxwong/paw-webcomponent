@@ -11,6 +11,7 @@ import toasts from './_toasts'
 import ckeditor from './_ckeditor'
 import datepickerBootstrap4 from './_datepicker-bootstrap4'
 import selectVSelect from './_select-vselect'
+import multiple from './_multiple'
 
 JQuery.extend(true, JQuery.fn.datetimepicker.defaults, {
   icons: {
@@ -44,7 +45,8 @@ const customElements = {
   'paw-toasts': toasts,
   'paw-ckeditor': ckeditor,
   'paw-datepicker-bootstrap4': datepickerBootstrap4,
-  'paw-select-vselect': selectVSelect
+  'paw-select-vselect': selectVSelect,
+  'paw-multiple': multiple
 }
 
 // register custom element

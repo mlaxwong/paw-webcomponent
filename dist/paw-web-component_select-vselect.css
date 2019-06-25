@@ -417,6 +417,7 @@ textarea.form-control {
 .v-select > div.vs__dropdown-toggle .vs__selected-options span.vs__selected, .v-select > div.vs__dropdown-toggle .vs__selected-options input.vs__search {
     padding: 0;
     margin: 0;
+    border: none;
 }
 .v-select > div.vs__dropdown-toggle .vs__search::placeholder {
     color: #6c757d;

@@ -6,6 +6,7 @@
       :options="this.vselectOptions"
       :label="this.$props.labelKey" 
       :placeholder="this.$props.placeholder" 
+      :reduce="onReduce"
       v-model="selected"
       @search:focus="onFocus" 
       @search:blur="onBlur" 
@@ -58,7 +59,14 @@ export default {
       this.isFocus = false
     },
     onInput: function (item) {
-      this.selected = item[this.$props.valueKey] || item
+      if (item) {
+        this.selected = item[this.$props.valueKey] || item
+      } else {
+        this.selected = null
+      }
+    },
+    onReduce: function (item) {
+      return item[this.$props.labelKey] || item
     }
   }
 }
@@ -79,6 +87,7 @@ export default {
       span.vs__selected, input.vs__search {
         padding: 0;
         margin: 0;
+        border: none;
       }
     }
 

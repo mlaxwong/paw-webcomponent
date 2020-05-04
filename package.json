@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/mlaxwong/paw-webcomponent#readme",
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "bootstrap": "^4.3.1",
     "jquery": "^3.5.0",
     "vue": "^2.6.10",
